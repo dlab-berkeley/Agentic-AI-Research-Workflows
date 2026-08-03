@@ -9,14 +9,14 @@ Welcome. Don't linger here; go straight to the demo.
 
 ---
 
-## First, a demo
+## A demo
 
 Note:
 Two minutes, no more. Show the finished artifact built from flight delay data: open it, click around, let it speak for itself. Don't explain how it was made yet. This is the thing the room will have built themselves by the end.
 
 ---
 
-## That took one prompt
+## The prompt
 
 ```text
 Download last month's flight delay data from the Bureau of
@@ -31,7 +31,7 @@ Reveal the prompt only after the demo. The gap between one sentence of instructi
 
 ---
 
-## Install while we talk
+## Installing Codex
 
 Download the Codex app at [chatgpt.com/codex](https://chatgpt.com/codex) and sign in with your ChatGPT account.
 
@@ -53,7 +53,7 @@ Frame: slides are signposts, most of today happens in Codex. Two threads run thr
 
 ---
 
-## You know chatbots
+## Chatbots
 
 <div class="chat">
   <div class="msg user">I'm getting <code>KeyError: 'DepDelay'</code>. Can you fix my code?</div>
@@ -72,7 +72,7 @@ Most of the room has used ChatGPT for code or text. Name the copy-paste loop; ev
 
 ---
 
-## An agent is a chatbot with hands
+## Agents
 
 <div class="appwin">
   <div class="titlebar"><span class="dots"><i></i><i></i><i></i></span><span>Codex — flight-delays</span></div>
@@ -99,7 +99,7 @@ The one conceptual slide that matters: agent = model + tools + a loop. Point at 
 
 ---
 
-## Start a project
+## Starting a project
 
 In Codex: **New Project**, name it `flight-delays`.
 
@@ -121,7 +121,7 @@ Motivate briefly: delays are relatable, the data is real and messy, and predicti
 
 ---
 
-## Try to get it yourself
+## Getting the data by hand
 
 <img class="screenshot" src="assets/bts.png" alt="Bureau of Transportation Statistics website">
 
@@ -132,7 +132,7 @@ Let them actually try; the site is a maze of menus and a checkbox form from anot
 
 ---
 
-## Now delegate it
+## Getting the data with the agent
 
 ```text
 Download the most recent month of on-time flight performance
@@ -148,9 +148,9 @@ Watch it navigate the same maze you just fought with. Wifi fallback: keep a cach
 
 ---
 
-## It asked before running that
+## Permissions
 
-That's the permission system. You choose how much leash it gets:
+The agent asked before running that command. You choose how much leash it gets:
 
 - **read-only**: it can look and suggest, nothing more
 - **ask first**: it proposes each command, you approve
@@ -163,7 +163,7 @@ Teach permissions at the exact moment the first approval prompt appears. Show wh
 
 ---
 
-## Make it check its work
+## Checking the download
 
 ```text
 How many rows? What date range? Which columns have missing
@@ -177,7 +177,7 @@ Provenance moment: for research, the download step belongs in the paper trail to
 
 ---
 
-## Look around
+## Exploring the data
 
 ```text
 What's in this data? What looks odd about it?
@@ -190,7 +190,7 @@ Uncertainty as a prompt strategy: the agent is a tutor sitting inside your proje
 
 ---
 
-## Plot the obvious things
+## First plots
 
 ```text
 How do delays vary by hour of day, day of week, airline,
@@ -215,7 +215,7 @@ Why 15 minutes: it's the industry's official definition of "delayed", and a bina
 
 ---
 
-## Ask before you specify
+## An open prompt
 
 ```text
 Can we predict which flights will run late using this data?
@@ -229,7 +229,7 @@ Resist the urge to prescribe. Let everyone run this and let the agent commit to 
 
 ---
 
-## Compare notes
+## Comparing notes
 
 Same instruction, same data. What did your neighbor get?
 
@@ -240,7 +240,7 @@ Stop and share; this is the stochastic-process moment. Two or three people descr
 
 ---
 
-## Now be specific
+## A specific prompt
 
 ```text
 Predict ARR_DEL15 with logistic regression, using only
@@ -259,7 +259,7 @@ Note:
 
 ---
 
-## Make it better
+## Improving the model
 
 ```text
 What's holding this model back? List ideas first,
@@ -289,7 +289,7 @@ The late-inbound-aircraft feature is usually the big winner, and it's intuitive:
 
 ---
 
-## Whose decisions are these?
+## The agent's decisions
 
 ```text
 List every preprocessing and modeling decision you made
@@ -307,7 +307,7 @@ Self-reflection point. Walk through the list it produces: imputation, encoding, 
 
 ---
 
-## It follows your rules, even wrong ones
+## A wrong instruction
 
 ```text
 Delays are normally distributed, so drop everything more than
@@ -321,7 +321,7 @@ Run it. If the agent objects, override it ("I know what I'm doing") and show tha
 
 ---
 
-## Ship it
+## The dashboard
 
 ```text
 Build a one-page dashboard: the delay patterns we plotted,
@@ -334,7 +334,7 @@ The deliverable moment; this mirrors the demo from the start of the session. If 
 
 ---
 
-## Write down what you did
+## The spec sheet
 
 ```text
 Write SPEC.md: every step from raw download to dashboard,
@@ -348,7 +348,7 @@ The spec is the paper trail: data source, filters, features, model, evaluation. 
 
 ---
 
-## Fresh thread, clean rebuild
+## Rebuilding from the spec
 
 Start a new thread in your project, and:
 
@@ -364,7 +364,7 @@ A new thread has no memory of the exploration; the spec has to carry everything.
 
 ---
 
-## The bottleneck is you
+## Responsibility
 
 The agent executes. You still decide:
 
@@ -401,7 +401,7 @@ Free baseline tier with weekly limits; paid Google AI plans raise them. It's a w
 
 ---
 
-## Same loop everywhere
+## Other tools
 
 | | |
 |---|---|
@@ -416,7 +416,7 @@ Cursor and GitHub Copilot belong in the same family for anyone who asks. Pricing
 
 ---
 
-## None of this existed two years ago
+## Things move quickly
 
 Terms younger than most PhD projects: *vibe coding*, *MCP*, *AGENTS.md*, *subagents*, *computer use*.
 
@@ -427,7 +427,7 @@ Optional: ask who has heard any of these. Dates for reference: MCP late 2024, vi
 
 ---
 
-## Worth remembering
+## Takeaways
 
 - An agent is a chatbot that can act: read files, run code, see results.
 - Every detail you leave out of a prompt, the agent decides for you. Find those decisions and check them.
@@ -435,7 +435,7 @@ Optional: ask who has heard any of these. Dates for reference: MCP late 2024, vi
 
 ---
 
-## Keep going
+## Resources
 
 - D-Lab consulting, for your own research: [dlab.berkeley.edu](https://dlab.berkeley.edu)
 - More workshops: [dlab-berkeley.github.io/dlab-workshops](https://dlab-berkeley.github.io/dlab-workshops/)
