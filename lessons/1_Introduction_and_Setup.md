@@ -25,11 +25,11 @@
 
 You have probably used a chatbot like ChatGPT or Claude: you type into a box, and the chatbot generates an answer.
 
-A **coding agent** is different in one major way: it can take actions on your computer. For example, it can read your files, write code, and run the code, and then look at the result and decide what to do next. A coding agent has *agency* to take meaningful actions rather than keeping you, the human, in the loop for every single step.
+A **coding agent** is different in one major way: it can take actions on your computer. For example, it can read your files, write code, and run the code, and then look at the result and decide what to do next. A coding agent has *agency* to take meaningful actions in a project.
 
-In 2025, coding agents took off, and became *very* good. They have fundamentally changed how work and research can be done, necessitating new user interfaces and workflows.
+In 2025, coding agents took off. They have changed how work and research can be done, necessitating new user interfaces and workflows.
 
-We'll be working with a coding agent called Codex, which is developed by OpenAI. In mid-2026, Codex merged with the ChatGPT app, so you may have already encountered it and how it has changed the design philosophies of what it means to work with AI. There are some new principles, now:
+We'll be working with a coding agent called [Codex](https://chatgpt.com/codex/), which is developed by OpenAI. In mid-2026, Codex merged with the ChatGPT app, so you may have already encountered it and how it has changed the design philosophies of what it means to work with AI. There are some new principles, now:
 
 - The agent works inside a **project folder** on your machine. That folder is its world.
 - Everything it does is **recorded**. You can inspect every command it ran.
@@ -54,17 +54,36 @@ We are using the **Codex app** in this workshop. Note that it merged with the Ch
 
 The Codex app is actually two apps: **ChatGPT** is the chatbot, and **Codex** is the coding agent that lives alongside it. A single toggle, located in the top left of the app, switches between them.
 
+<img src="../images/codex_toggle.png" alt="The toggle in the top left: ChatGPT or Codex" width="400">
+
 Within ChatGPT, there is another toggle: Chat and Work. Chat is the familiar chatbot setup you're used to with ChatGPT. Work is a sort of "Codex lite" where an agent can take actions for you, but is less focused on developing code. For example, "Work" might be better suited if you're only working with, e.g., Google Docs, while "Codex" is better if you're working in a code repository.
 
-Truth be told, you shouldn't worry too much about these distinctions - all signs indicate that AI products are converging on the "agent" setup where you simply talk to an agent, and it takes actions for you. So, we will be working in the "Codex" setting today.
+<img src="../images/chatgpt-chat-work.png" alt="The toggle between Chat and Work in ChatGPT" width="400">
 
-The **sidebar** on the left is split into three groups:
+You shouldn't worry too much about these distinctions. All signs indicate that AI products are converging on the "agent" setup where you simply talk to an agent, and it takes actions for you. So, we will be working in the "Codex" setting today.
 
-- `Pinned`: conversations you've pinned to keep them handy.
-- `Recents`: your recent conversations. These are just chats.
+![The Codex app: sidebar with Projects on the left, and the prompt box at the bottom asking "What should we build?"](../images/codex_interface.png)
+
+The **sidebar** on the left has some shortcuts at the top (`New chat`, `Pull requests`, `Sites`, `Scheduled`, `Plugins`) — most of these are for software developers, and we won't need them today. The two sections that matter for us:
+
 - `Projects`: the folders you've opened. A project bundles a folder with all the conversations you've had about it. This is where our workshop lives today.
+- `Recents`: your recent conversations. These are just chats.
 
 At the bottom is the **text box**, where you talk to the agent. This is no different from ChatGPT: type what you want in plain language and hit enter.
+
+## Model and Effort
+
+Inside the text box there's a small chip that reads something like `5.6 Sol High`. That's two settings: which **model** is doing the work, and how much **effort** it puts in. Click the chip to see both:
+
+<img src="../images/codex-model-select.png" alt="The model picker: several models of different sizes and generations" width="500">
+<img src="../images/codex-effort.png" alt="The effort picker: Light, Medium, High, Extra High, and Ultra, which consumes usage limits faster" width="440">
+
+- **Model** is which "brain" you're using. Bigger and newer models are more capable, but they use up your usage limits faster.
+- **Effort** is how long the model gets to think before and while it acts. Higher effort helps on hard tasks, and also burns limits faster — note the warning under `Ultra`.
+
+For today, the defaults are fine. If you hit the free tier's usage limits partway through, switch to a smaller model or lower effort rather than stopping.
+
+💡 **Tip:** These settings are one more reason two people can get different results from the same prompt — something we'll see up close later today.
 
 <a id='section3'></a>
 
@@ -73,7 +92,10 @@ At the bottom is the **text box**, where you talk to the agent. This is no diffe
 We're starting from scratch — a fresh project that will hold everything we build today.
 
 1. In the app, switch the toggle to `Codex`.
-2. Create a new project called `flight-delays`. Codex creates the folder for you. [TODO: confirm at dry-run whether the app asks where to put it, and where it lands by default]
+2. Create a new project called `flight-delays`: click the `+` next to `Projects` in the sidebar, type the name, and click `Create project`. Codex creates the folder for you. [TODO: confirm at dry-run where the folder lands by default]
+
+<img src="../images/codex_new_project-1.png" alt="Step 1: the + button next to Projects in the sidebar" width="380">
+<img src="../images/codex_new_project-2.png" alt="Step 2: the Create project dialog with flight-delays typed in" width="500">
 3. Make sure the agent is set to work **locally** — on your computer, not in the cloud. We need it working with the files on your machine.
 
 That's it. The agent's world is now that folder. Your new project should appear under `Projects` in the sidebar.
@@ -88,22 +110,24 @@ The paradigm to internalize is **one conversation = one task** that you want the
 
 Downloading the data is a task - that's a conversation. Exploring the data is a task - that's a conversation. Fitting a model - conversation. When you move on to a new task, don't keep piling into one endless conversation. Just start a new conversation.
 
-But, context management is important, right? There are two things to keep in mind:
+There are two things to keep in mind:
 
 - **Files persist across conversations.** Anything the agent created in an earlier conversation is still in the folder, and a new conversation can see it.
-- **The chat history doesn't.** A new conversation starts fresh. The agent doesn't remember what you discussed in the last one. However, the agent *can* look things up in the project folder. So if information lives in your head, the agent doesn't have access to it unless you tell it. But if it exists in a file, the agent can search for it and use it.
+- **The chat history doesn't.** A new conversation starts fresh. The agent doesn't remember what you discussed in the last one. However, the agent *can* access the project's files, instructions, shared sources, and–if enabled—memories from earlier chats. In other words: if information lives in your head, the agent doesn't have access to it unless you tell it. But if it exists in a file, the agent can search for it and use it.
 
 🔔 **Question:** If each conversation starts with no memory of the previous ones, how does the agent know the rules of your project? 
 
 ## Permissions
 
-Before we set the agent loose, it's worth knowing what it's allowed to do. How much freedom the agent has is a setting, with three levels:
+Before we set the agent loose, it's worth knowing what it's allowed to do. How much freedom the agent has is a setting — click the approval chip in the prompt box to see the three levels:
 
-- **`Ask for approval`** (the default) - the agent can read and edit files in the project folder and run routine commands, but pauses for your review before elevated actions.
-- **`Approve for me`** - the agent reviews its own requests automatically. Fewer pauses, but its self-review can make mistakes.
-- **`Full access`** - no approvals at all, across your whole computer.
+![The approval setting: Ask for approval, Approve for me, and Full access](../images/codex_permissions.png)
 
-⚠️ **Warning:** Stay on `Ask for approval` today. `Full access` means the agent can touch anything on your computer with no review, which sometimes can lead to unintended consequences.
+- **`Ask for approval`** - always ask before editing external files or using the internet.
+- **`Approve for me`** - the agent reviews its own requests, and only asks about actions it detects as potentially unsafe. Fewer pauses, but its self-review can make mistakes.
+- **`Full access`** - unrestricted access to the internet and any file on your computer. Note that the app shows this one in warning-orange — that's not decoration.
+
+⚠️ **Warning:** Set it to `Ask for approval` today, and check what your current setting is — it may not be the cautious one. `Full access` means the agent can touch anything on your computer with no review, which sometimes can lead to unintended consequences.
 
 ## 🥊 Challenge 1: Meet Your Agent
 
