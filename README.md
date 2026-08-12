@@ -1,5 +1,6 @@
 # D-Lab Agentic AI for Research Workflows Workshop
 
+[![Open Slides](https://img.shields.io/badge/open-slides%20-purple)](https://dlab-berkeley.github.io/Agentic-AI-Research-Workflows/slides/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 This repository contains the materials for D-Lab's Agentic AI for Research Workflows workshop.
@@ -45,15 +46,16 @@ We use the **Codex app** (OpenAI's coding agent, bundled with the ChatGPT app). 
 
 ## How the Workshop Runs
 
-The workshop is hands-on: you follow along on your own machine, working in the Codex app. The [lessons](lessons/) are the participant materials — keep them open in a browser tab and copy-paste the prompts as we go:
+The workshop is hands-on: you follow along on your own machine, working in the Codex app. 
 
+First, open this [slide deck](https://dlab-berkeley.github.io/Agentic-AI-Research-Workflows/slides/).
+
+The [lessons](lessons/) folder has the rest of the workshop materials. Keep them open in a browser tab and copy-paste the prompts as we go:
 1. [Introduction and Setup](lessons/1_Introduction_and_Setup.md)
 2. [Getting the Data](lessons/2_Getting_the_Data.md)
 3. [Exploring Flight Delays](lessons/3_Exploring_Flight_Delays.md)
 4. [Predicting Flight Delays](lessons/4_Predicting_Flight_Delays.md)
 5. [From Chat to Reproducible Workflow](lessons/5_From_Chat_to_Reproducible_Workflow.md)
-
-The [slides](slides/) cover the conceptual opening; everything after that happens live in the app.
 
 # Additional Resources
 
