@@ -9,107 +9,77 @@ In two hours, you'll delegate a real research project to a coding agent — down
 ![A coding agent downloading, unzipping, and filtering a month of flight data from a single plain-language prompt, sped up](images/codex_download_task.gif)
 
 ## Prerequisites
-We recommend attending [D-LabWorkshop1](D-LabWorkshop1Link),
-[D-LabWorkshop2](D-LabWorkshop2Link), and
-[AdditionalWorkshopsAsNeeded](LinksToWorkshops) prior to this workshop.
 
-Check out D-Lab’s [Workshop Catalog](https://dlab-berkeley.github.io/dlab-workshops/) to browse all workshops, see what’s running now, and review prerequisites.
+None. No programming experience is required — the point of the workshop is that you direct the work in plain language. If you've used ChatGPT or a similar chatbot before, you have all the background you need.
+
+Check out D-Lab's [Workshop Catalog](https://dlab-berkeley.github.io/dlab-workshops/) to browse all workshops, see what's running now, and review prerequisites.
 
 ## Workshop Goals
 
-In this workshop, we provide [WorkshopGoal]. First, we’ll cover [Aim1]. Then,
-we’ll explore [Aim2]. 
+Coding agents can now carry out real research work: fetching data, cleaning it, fitting models, and building interactive outputs from plain-language instructions. That power comes with a catch — every detail you don't specify, the agent decides for you, silently.
 
-_Only if necessary:_ If you are not familiar with material in
-[D-LabWorkshop1](D-LabWorkshop1Link), [D-LabWorkshop2](D-LabWorkshop2Link), and
-[AdditionalWorkshopsAsNeeded](LinksToWorkshops), we recommend attending those
-workshops first.
+In this workshop, we build one project end to end: predicting which flights out of SFO, OAK, and SJC will arrive late, using real government data. Along the way we practice the habits that make agent-assisted research trustworthy: inspecting the agent's steps, pinning down specifications, checking results against baselines, and turning a pile of conversations into a reproducible pipeline.
 
 ## Learning Objectives
 
 After this workshop, you will be able to:
 
-- [LearningObjective1].
-- [LearningObjective2].
-- [LearningObjective3].
+- Explain what a coding agent is, how it differs from a chatbot, and when to use which.
+- Set up an agent project with written rules (`AGENTS.md`) and sensible permission settings.
+- Delegate multi-step data work to an agent and inspect every step it took.
+- Evaluate a predictive model honestly, against the baseline a trivial guess would achieve.
+- Recognize the failure modes of agent-assisted analysis: silent decisions, run-to-run variation, data leakage, and metric gaming.
+- Convert a conversational analysis into a written specification and a reproducible pipeline of scripts.
 
-This workshop does not cover the following:
+This workshop does not cover:
 
-- [NotCovered1]. These are covered in [D-LabWorkshopName](URL).
-- [NotCovered2]. These are covered in [D-LabWorkshopName](URL).
-
+- Programming in Python or R. The agent writes the code; we read and question it.
+- Machine learning theory. We use one simple model and focus on evaluating it honestly. For more, see D-Lab's [Python Machine Learning workshop](https://github.com/dlab-berkeley/Python-Machine-Learning).
 
 ## Installation Instructions
 
-We will use [RStudio/Python] to go through the workshop materials, which requires installation of [Software]. Complete the following steps:
+We use the **Codex app** (OpenAI's coding agent, bundled with the ChatGPT app). A free account is enough for the workshop. Before the session:
 
-1. This step(s) details software to download, with a link.
-2. Download these workshop materials:
-    * Click the green "Code" button in the top right of the repository information.
-    * Click "Download Zip".
-    * Extract this file to a folder on your computer where you can easily access it (we recommend Desktop).
-3. Optional: if you’re familiar with git, you can instead clone this repository by opening a terminal and entering [GitCloneCommand].
+1. Download and install the [Codex/ChatGPT app](https://chatgpt.com/codex) (macOS or Windows).
+2. Open the app and sign in with an OpenAI account (create a free one if needed).
+3. UC Berkeley affiliates who want higher usage limits can request a [ChatGPT Edu license through bIT](https://berkeley.service-now.com/itservicehub?id=sc_cat_item&sys_id=a1a17e489771b6108b2fb9a6f053afc6&sysparm_category=3025d03adb20d010d77b38f0ad961933), but this is not required.
 
-## Is [Language] not Working on Your Computer?
+That's it — there is nothing to clone and no packages to install. You'll create a fresh project during the workshop, and the agent handles its own environment.
 
-If you do not have [Language] installed and the materials loaded on your
-workshop by the time it starts, we *strongly* recommend using the UC Berkeley
-Datahub to run the materials for these lessons. You can access the DataHub by
-clicking the following button:
+## How the Workshop Runs
 
-[![DataHub](https://img.shields.io/badge/launch-datahub-blue)](DATAHUB_LINK_HERE)
+The workshop is hands-on: you follow along on your own machine, working in the Codex app. The [lessons](lessons/) are the participant materials — keep them open in a browser tab and copy-paste the prompts as we go:
 
-The DataHub downloads this repository, along with any necessary packages, and
-allows you to run the materials in an RStudio instance on UC Berkeley's servers.
-No installation is necessary from your end - you only need an internet browser
-and a CalNet ID to log in. By using the DataHub, you can save your work and come
-back to it at any time. When you want to return to your saved work, just go
-straight to the [D-Lab DataHub](https://dlab.datahub.berkeley.edu), sign in, and
-you click on the `[Workshop-Name]` folder.
+1. [Introduction and Setup](lessons/1_Introduction_and_Setup.md)
+2. [Getting the Data](lessons/2_Getting_the_Data.md)
+3. [Exploring Flight Delays](lessons/3_Exploring_Flight_Delays.md)
+4. [Predicting Flight Delays](lessons/4_Predicting_Flight_Delays.md)
+5. [From Chat to Reproducible Workflow](lessons/5_From_Chat_to_Reproducible_Workflow.md)
 
-If you don't have a Berkeley CalNet ID, you can still run these lessons in the cloud, by clicking this button:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](BINDER_LINK_HERE)
-
-By using this button, however, you cannot save your work.
-
-
-## Run the Code
-
-Now that you have all the required software and materials, you need to run the code:
-
-Provide instructions on running the code, including how to load relevant software (RStudio, Jupyter Notebooks, etc.) and which file to open up. See other repositories for examples.
-
-Additionally, provide instructions on how to run code once it’s open (running Jupyter cells, RMarkdown cells, etc.).
+The [slides](slides/) cover the conceptual opening; everything after that happens live in the app.
 
 # Additional Resources
 
-Check out the following resources to learn more about [Workshop topics]:
-
-* [Resource1](LinkToResource1): _Explain Resource 1_
-* [Resource2](LinkToResource2): _Explain Resource 2_
-* [...]
-
+- [BTS On-Time Performance data](https://www.transtats.bts.gov/) — the flight data we use, covering every US domestic flight.
+- [Open-Meteo](https://open-meteo.com/) — the free historical weather API the agent joins in lesson 4.
+- [AGENTS.md](https://agents.md/) — the emerging convention for giving agents project rules.
+- [One Useful Thing](https://www.oneusefulthing.org/) — Ethan Mollick's newsletter on working with AI, source of the agent-jargon example in the slides.
 
 # About the UC Berkeley D-Lab
 
-D-Lab works with Berkeley faculty, research staff, and students to advance data-intensive social science and humanities research. Our goal at D-Lab is to provide practical training, staff support, resources, and space to enable you to use R for your own research applications. Our services cater to all skill levels and no programming, statistical, or computer science backgrounds are necessary. We offer these services in the form of workshops, one-to-one consulting, and working groups that cover a variety of research topics, digital tools, and programming languages.  
+D-Lab works with Berkeley faculty, research staff, and students to advance data-intensive social science and humanities research. Our goal at D-Lab is to provide practical training, staff support, resources, and space to enable you to use data science in your own research applications. Our services cater to all skill levels and no programming, statistical, or computer science backgrounds are necessary. We offer these services in the form of workshops, one-to-one consulting, and working groups that cover a variety of research topics, digital tools, and programming languages.
 
 Visit the [D-Lab homepage](https://dlab.berkeley.edu/) to learn more about us. You can view our [calendar](https://dlab.berkeley.edu/events/calendar) for upcoming events, learn about how to utilize our [consulting](https://dlab.berkeley.edu/consulting) and [data](https://dlab.berkeley.edu/data) services, and check out upcoming [workshops](https://dlab.berkeley.edu/events/workshops).
 
-# Other D-Lab [Language] Workshops
+# Other D-Lab Workshops
 
-Here are other [Language] workshops offered by the D-Lab:
+Interested in the tools behind today's workshop?
 
-## Basic Competency
-
-**Provide a list of workshops here.**
-
-## Intermediate/Advanced Competency
-
-**Provide a list of workshops here.**
+- [GPT Fundamentals](https://github.com/dlab-berkeley/GPT-Fundamentals)
+- [Python Fundamentals](https://github.com/dlab-berkeley/Python-Fundamentals)
+- [Python Machine Learning](https://github.com/dlab-berkeley/Python-Machine-Learning)
 
 # Contributors
 
-**Provide a list of contributors here, with links to their webpages (D-Lab or
-private).**
+- [Tom van Nuenen](https://dlab.berkeley.edu/people/tom-van-nuenen)
+- [Pratik Sachdeva](https://dlab.berkeley.edu/people/pratik-sachdeva)
