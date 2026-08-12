@@ -10,6 +10,7 @@
 🔔 **Question**: A quick question to help you understand what's going on.<br>
 💡 **Tip**: How to do something a bit more efficiently or effectively.<br>
 ⚠️ **Warning:** Heads-up about tricky stuff or common mistakes.<br>
+✅ **Expected result**: What you should see if things went right. Small differences are fine; big ones are worth investigating.<br>
 
 ### Sections
 1. [The Problem: Will My Flight Be Late?](#section1)
@@ -31,13 +32,29 @@ The dataset is quite robust - and, like most real research data, a little unwiel
 - Each flight has over 100 columns: scheduled and actual times, the delay broken down by cause (weather? security? the airline itself?), cancellations, diversions, even the aircraft's tail number.
 - It doesn't explain itself. The columns have names like `CRSDepTime` and `OriginWac`. There's a codebook you have to read to know what anything means, and lookup tables to turn codes into names.
 
+Here are five real rows (and 12 of the 110 columns) so you know what we're dealing with:
+
+| FlightDate | Reporting_Airline | Origin | OriginWac | Dest | CRSDepTime | DepTime | DepDel15 | ArrDel15 | CRSElapsedTime | Distance | DistanceGroup |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2025-03-02 | WN | OAK | 91 | SNA | 1940 | 1932.0 | 0.0 | 0.0 | 90.0 | 371.0 | 2 |
+| 2025-03-05 | AA | SFO | 91 | JFK | 1041 | 1142.0 | 1.0 | 1.0 | 332.0 | 2586.0 | 11 |
+| 2025-03-11 | HA | OAK | 91 | HNL | 850 | 849.0 | 0.0 | 0.0 | 345.0 | 2409.0 | 10 |
+| 2025-03-22 | OO | SFO | 91 | LAX | 1045 | 1053.0 | 0.0 | 0.0 | 97.0 | 337.0 | 2 |
+| 2025-03-26 | WN | SJC | 91 | LAX | 2105 | 2110.0 | 0.0 | 0.0 | 80.0 | 308.0 | 2 |
+
+🔔 **Question:** A departure time of `1940` is 7:40 pm — the times are stored as plain numbers. Which airline is `OO`? What's a `OriginWac`? This is what "the data doesn't explain itself" means: none of this is wrong, it's just not written for you.
+
 That's a lot of data. We'll keep things manageable by working with one month of departures from the three Bay Area airports: **SFO**, **OAK**, and **SJC**.
 
 <a id='section2'></a>
 
 # The Manual Way
 
-First, try downloading the data by yourself. Think about what steps you need to take to do this. Then, imagine having to preprocess the data. How many steps and lines of code would you need to write in order to explore the columns and subselect the data?
+First, try downloading the data by yourself at [transtats.bts.gov](https://www.transtats.bts.gov):
+
+![The BTS download page: a maze of menus and a checkbox form with over 100 columns](../images/bts.png)
+
+ Think about what steps you need to take to do this. Then, imagine having to preprocess the data. How many steps and lines of code would you need to write in order to explore the columns and subselect the data?
 
 🔔 **Question:** If you did all this by hand today, and a collaborator asked you in three months exactly what you downloaded and how you filtered it - could you answer?
 
@@ -55,17 +72,30 @@ https://transtats.bts.gov/PREZIP/On_Time_Reporting_Carrier_On_Time_Performance_1
 Unzip it into a data/ folder. Then filter it to flights departing from SFO, OAK, or SJC, and save the result as data/flights_bayarea.csv. Tell me how many rows the raw file had and how many remain after filtering.
 ```
 
-The agent will ask for approval as it goes. Read what it proposes before you approve.
+The agent will ask for approval as it goes. Read what it proposes before you approve. Here's the kind of request you'll see — the agent asking to run the actual download command:
+
+![Codex asking permission to run the curl command that downloads the BTS zip, with Deny and Allow once buttons](../images/codex_approval.png)
+
+Notice you can read the **exact command** before anything runs: what it downloads, and where it puts it. That's what "ask for approval" buys you.
 
 ⚠️ **Warning:** The raw file is big (about 250 MB unzipped). Give it a minute.
 
-Everyone should end with roughly the same row count. If your number is way off, ask the agent to double-check its filter.
+✅ **Expected result:** The raw file has **600,872 rows and 110 columns**. After filtering to SFO/OAK/SJC departures, **18,898 rows** remain.
+
+Everyone should end with the same row count. Paste your number into the Zoom chat — the whole room's numbers should agree. If yours is way off, ask the agent to double-check its filter.
 
 <a id='section4'></a>
 
 # Look at What It Did
 
 Expand the agent's work in the conversation and look at the individual steps: the download command, the unzip, the filtering code it wrote, the row counts.
+
+<!-- TODO(screenshot): the EXPANDED action log from the download conversation, zoomed
+     enough to read — must show the download command, the unzip step, and the filtering
+     code. Save as images/codex_action_log.png and uncomment: -->
+<!-- ![The agent's expanded action log: the download command, the unzip, and the filtering code](../images/codex_action_log.png) -->
+
+Your agent's exact steps will differ, but the shape is always the same: a sequence of commands and edits, each one recorded, each one expandable.
 
 Compare that with the manual version: clicking around a website leaves no record at all. The agent leaves a **trace of every step** - you can scroll back and see exactly what it did.
 

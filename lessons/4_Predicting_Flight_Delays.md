@@ -13,6 +13,7 @@
 🥊 **Challenge**: Interactive exercise. We'll work through these in the workshop!<br>
 💡 **Tip**: How to do something a bit more efficiently or effectively.<br>
 ⚠️ **Warning:** Heads-up about tricky stuff or common mistakes.<br>
+✅ **Expected result**: What you should see if things went right. Small differences are fine; big ones are worth investigating.<br>
 
 ### Sections
 1. [Ask the Agent How](#section1)
@@ -30,9 +31,13 @@ It's time to create a predictive model, which is a new task. So, we'll start a *
 I want to predict whether a flight will be delayed by 15 or more minutes, using data/flights_clean.csv. What modeling approach would you suggest, and which variables would you use? Don't build anything yet, just give me a proposal.
 ```
 
+<!-- TODO(dry-run): Capture one real agent proposal for this prompt — ideally one that
+     suggests using DepDelay. Paste it here as a quoted example with the leakage
+     highlighted, framed as "here is one proposal an agent gave us". -->
+
 ## 🥊 Challenge 3: Compare Proposals
 
-Read your agent's proposal. Then compare with your neighbors:
+Read your agent's proposal. Then compare — put in the Zoom chat which model your agent suggested, and which variables:
 
 - Did you get the same model? The same variables?
 - Did any agent propose using `DepDelay` - the departure delay? Think about that one: if you're trying to predict a delay before the day of the flight, would you know the departure delay yet?
@@ -61,6 +66,8 @@ Save the script as model_v1.py.
 ```
 
 After you run it, what accuracy do you get?
+
+✅ **Expected result:** accuracy around **0.834**, and the always-on-time baseline around **0.835**. Expect small differences from your neighbors (within about 0.01) — the prompt pins down a lot, but the agent still makes small preprocessing choices of its own. When we ran this, the model actually landed a hair *below* the baseline.
 
 ## The Reveal
 
@@ -94,6 +101,8 @@ Think about what just happened: the agent discovered an API, fetched from it, ha
 
 ## Did It Work?
 
+✅ **Expected result:** accuracy around **0.84**, against the same **0.835** baseline.
+
 Compare your accuracy with `model_v1.py`. It barely moved.
 
 🔔 **Question:** Does that mean weather doesn't matter for flight delays? Or that our yardstick can't see it?
@@ -104,7 +113,9 @@ Even though accuracy did not improve, the model actually did get better at telli
 Using the fitted model from model_v2.py, find the 100 test-set flights with the highest predicted probability of delay. What fraction of them were actually delayed? Compare that to the overall delay rate.
 ```
 
-The model learned to improve its predictions, but plain accuracy just isn't a sensitive enough instrument to show it since it only counts predictions that cross the 50% line.
+✅ **Expected result:** when we ran this, about **66 of the 100** highest-risk flights really were delayed — four times the overall rate of 16.5%. The same exercise on the no-weather model found only about 39 of 100.
+
+So the weather model is *much* better at telling risky flights from safe ones. The model learned; plain accuracy just isn't a sensitive enough instrument to show it, since it only counts predictions that cross the 50% line.
 
 💡 **Tip:** When a result surprises you, interrogate the metric before the model.
 
@@ -126,7 +137,11 @@ Then, let it work.
 
 Share with the room: what did your agent do?
 
-Many agents will reach for `DepDelay` - how late the flight left the gate - and accuracy leaps to about 95%. Impressive! Except: to use that model, you'd need to know the plane already left late. It predicts the future using the future.
+<!-- TODO(dry-run): Capture what a real agent did with the "make accuracy as good as
+     possible" instruction — screenshot or quoted plan. The DepDelay grab is the one
+     to catch. Insert here as an example. -->
+
+Many agents will reach for `DepDelay` - how late the flight left the gate - and accuracy leaps to about **95%** (we measured 0.947). Impressive! Except: to use that model, you'd need to know the plane already left late. It predicts the future using the future.
 
 The agent didn't cheat. It did **exactly what we asked**. We just asked for the wrong thing. A clear instruction with a misconception baked in gets you a confident result with the same misconception baked in.
 

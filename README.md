@@ -1,10 +1,12 @@
-# D-Lab Agentic Programming Workshop
+# D-Lab Agentic AI for Research Workflows Workshop
 
-[![DataHub](https://img.shields.io/badge/launch-datahub-blue)](DATAHUB_LINK_HERE)
-[![Binder](https://mybinder.org/badge_logo.svg)](BINDER_LINK_HERE)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository contains the materials for D-Lab [WorkshopName] workshop. 
+This repository contains the materials for D-Lab's Agentic AI for Research Workflows workshop.
+
+In two hours, you'll delegate a real research project to a coding agent — downloading government flight data, exploring it, predicting delays, building a dashboard — and learn where the agent's judgment ends and yours begins. Here's the very first delegated task, sped up 6×:
+
+![A coding agent downloading, unzipping, and filtering a month of flight data from a single plain-language prompt, sped up](images/codex_download_task.gif)
 
 ## Prerequisites
 We recommend attending [D-LabWorkshop1](D-LabWorkshop1Link),
