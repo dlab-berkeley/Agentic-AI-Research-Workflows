@@ -10,13 +10,13 @@ In two hours, you'll delegate a real research project to a coding agent — down
 
 ## Prerequisites
 
-None. No programming experience is required — the point of the workshop is that you direct the work in plain language. If you've used ChatGPT or a similar chatbot before, you have all the background you need.
+No programming experience is required. If you've used ChatGPT or a similar chatbot before, you have all the background you need.
 
 Check out D-Lab's [Workshop Catalog](https://dlab-berkeley.github.io/dlab-workshops/) to browse all workshops, see what's running now, and review prerequisites.
 
 ## Workshop Goals
 
-Coding agents can now carry out real research work: fetching data, cleaning it, fitting models, and building interactive outputs from plain-language instructions. That power comes with a catch — every detail you don't specify, the agent decides for you, silently.
+Coding agents can now carry out real research work: fetching data, cleaning it, fitting models, and building interactive outputs from plain-language instructions. That power comes with a catch: every detail you don't specify, the agent decides for you.
 
 In this workshop, we build one project end to end: predicting which flights out of SFO, OAK, and SJC will arrive late, using real government data. Along the way we practice the habits that make agent-assisted research trustworthy: inspecting the agent's steps, pinning down specifications, checking results against baselines, and turning a pile of conversations into a reproducible pipeline.
 
@@ -42,9 +42,6 @@ We use the **Codex app** (OpenAI's coding agent, bundled with the ChatGPT app). 
 
 1. Download and install the [Codex/ChatGPT app](https://chatgpt.com/codex) (macOS or Windows).
 2. Open the app and sign in with an OpenAI account (create a free one if needed).
-3. UC Berkeley affiliates who want higher usage limits can request a [ChatGPT Edu license through bIT](https://berkeley.service-now.com/itservicehub?id=sc_cat_item&sys_id=a1a17e489771b6108b2fb9a6f053afc6&sysparm_category=3025d03adb20d010d77b38f0ad961933), but this is not required.
-
-That's it — there is nothing to clone and no packages to install. You'll create a fresh project during the workshop, and the agent handles its own environment.
 
 ## How the Workshop Runs
 
@@ -81,5 +78,6 @@ Interested in the tools behind today's workshop?
 
 # Contributors
 
-- [Tom van Nuenen](https://dlab.berkeley.edu/people/tom-van-nuenen)
 - [Pratik Sachdeva](https://dlab.berkeley.edu/people/pratik-sachdeva)
+- [Tom van Nuenen](https://dlab.berkeley.edu/people/tom-van-nuenen)
+- AI Agents: Codex and Claude Code
