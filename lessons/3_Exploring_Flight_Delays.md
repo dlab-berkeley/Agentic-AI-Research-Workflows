@@ -29,7 +29,7 @@ We have a new task: exploring the data we just downloaded. Start a **new convers
 Show me the most interesting plot in this data.
 ```
 
-Let it run. Then compare: a few volunteers will share their screen on Zoom.
+Let it run. Then compare. A few volunteers will share their outputs.
 
 🔔 **Question:** Same data, same prompt. Did you get the same plot as the people sharing? What does that tell you about working with agents?
 
@@ -67,7 +67,7 @@ Plot the share of flights delayed 15+ minutes by scheduled departure hour.
 
 ![Bar chart of delay rate by scheduled departure hour, climbing from about 1% at 5 am to over 20% in the evening](../images/delay_rate_by_hour.png)
 
-We see here one of the most reliable findings in air travel: delays build up over the day. A 6 am flight is delayed about 5% of the time; a 4 pm flight, over 20%. Early planes leave on time. By evening, the day's problems have piled up.
+We see here one of the most reliable findings in air travel: delays build up over the day. A 6 AM flight is delayed about 5% of the time; a 4 PM flight, is delayed over 20% of the time. Early planes leave on time. By evening, the day's problems have piled up.
 
 🔔 **Question:** There's a bar near midnight that breaks the pattern — high delay rate, very early hour. What kind of flights leave the Bay Area around midnight, and why might they be different?
 

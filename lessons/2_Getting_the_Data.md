@@ -26,7 +26,7 @@ How many times have you stressed about making your connection because your fligh
 
 The U.S. Department of Transportation defines a flight as "delayed" at exactly that threshold, and the government publishes data on every single domestic flight: the **Bureau of Transportation Statistics (BTS) On-Time Performance data**.
 
-The dataset is quite robust - and, like most real research data, a little unwieldy:
+The dataset is quite robust — and, like most real research data, a little unwieldy:
 
 - It covers **every domestic flight** by every major U.S. airline, updated monthly, going back decades.
 - Each flight has over 100 columns: scheduled and actual times, the delay broken down by cause (weather? security? the airline itself?), cancellations, diversions, even the aircraft's tail number.

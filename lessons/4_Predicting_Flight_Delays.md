@@ -69,6 +69,15 @@ After you run it, what accuracy do you get?
 
 ✅ **Expected result:** accuracy around **0.834**, and the always-on-time baseline around **0.835**. Expect small differences from your neighbors (within about 0.01) — the prompt pins down a lot, but the agent still makes small preprocessing choices of its own. When we ran this, the model actually landed a hair *below* the baseline.
 
+💡 **Tip**: If you're not familiar with logistic regression, a few details might help in understanding the results:
+- Logistic regression is suited for classification: predicting between one of two labels (delay or no delay).
+- It's a linear model, like linear regression. Logistic regression can be thought of as the "linear regression" for classification.
+- It predicts a **probability** of one label. We convert it to accuracy by choosing a threshold (often 0.5) and turning that probability into a label. There's nothing stopping you from changing that threshold (you often need to in real life settings).
+- Logistic regression models are often judged by the quality of their predicted probabilities (not just accuracy), but we will only explore that further at the end of this lesson.
+
+⚠️ **Warning:** Agentic tooling is great for doing analyses that you might not have had the expertise to do yourself, like logistic regression! But if you don't have the domain knowledge, you may run into issues. The details matter for interpreting your results, so getting feedback from humans, especially when you're working outside your expertise, is very important!
+
+
 ## The Reveal
 
 🔔 **Question:** Our model is about 84% accurate. Is that good?

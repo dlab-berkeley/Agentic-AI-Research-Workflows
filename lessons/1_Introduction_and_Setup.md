@@ -23,13 +23,13 @@
 
 # What Is Agentic Programming?
 
-You have probably used a chatbot like ChatGPT or Claude: you type into a box, and the chatbot generates an answer.
+You have probably used a chatbot like ChatGPT or Claude. You type into a box, and the chatbot generates an answer.
 
 A **coding agent** is different in one major way: it can take actions on your computer. For example, it can read your files, write code, and run the code, and then look at the result and decide what to do next. A coding agent has *agency* to take meaningful actions in a project.
 
 In 2025, coding agents took off. They have changed how work and research can be done, necessitating new user interfaces and workflows.
 
-We'll be working with a coding agent called [Codex](https://chatgpt.com/codex/), which is developed by OpenAI. In mid-2026, Codex merged with the ChatGPT app, so you may have already encountered it and how it has changed the design philosophies of what it means to work with AI. There are some new principles, now:
+In this workshop, we'll work with a coding agent called [Codex](https://chatgpt.com/codex/), developed by OpenAI. In mid-2026, Codex merged with the ChatGPT app, so you may have already encountered it and how it has changed the design philosophies of what it means to work with AI. As of this writing (August 2026), there are some new principles in how to use the tool in your normal workflows:
 
 - The agent works inside a **project folder** on your machine. That folder is its world.
 - Everything it does is **recorded**. You can inspect every command it ran.
@@ -54,13 +54,17 @@ We are using the **Codex app** in this workshop. Note that it merged with the Ch
 
 The Codex app is actually two apps: **ChatGPT** is the chatbot, and **Codex** is the coding agent that lives alongside it. A single toggle, located in the top left of the app, switches between them.
 
+<center>
 <img src="../images/codex_toggle.png" alt="The toggle in the top left: ChatGPT or Codex" width="400">
+</center>
 
 Within ChatGPT, there is another toggle: Chat and Work. Chat is the familiar chatbot setup you're used to with ChatGPT. Work is a sort of "Codex lite" where an agent can take actions for you, but is less focused on developing code. For example, "Work" might be better suited if you're only working with, e.g., Google Docs, while "Codex" is better if you're working in a code repository.
 
+<center>
 <img src="../images/chatgpt-chat-work.png" alt="The toggle between Chat and Work in ChatGPT" width="400">
+</center>
 
-You shouldn't worry too much about these distinctions. All signs indicate that AI products are converging on the "agent" setup where you simply talk to an agent, and it takes actions for you. So, we will be working in the "Codex" setting today.
+You shouldn't worry too much about these distinctions. All signs indicate that AI products are converging on the "agent" setup where you simply talk to an agent, and it takes actions for you. **So, we will be working in the "Codex" setting today.**
 
 ![The Codex app: sidebar with Projects on the left, and the prompt box at the bottom asking "What should we build?"](../images/codex_interface.png)
 
@@ -75,8 +79,10 @@ At the bottom is the **text box**, where you talk to the agent. This is no diffe
 
 Inside the text box there's a small chip that reads something like `5.6 Sol High`. That's two settings: which **model** is doing the work, and how much **effort** it puts in. Click the chip to see both:
 
+<center>
 <img src="../images/codex-model-select.png" alt="The model picker: several models of different sizes and generations" width="500">
 <img src="../images/codex-effort.png" alt="The effort picker: Light, Medium, High, Extra High, and Ultra, which consumes usage limits faster" width="440">
+</center>
 
 - **Model** is which "brain" you're using. Bigger and newer models are more capable, but they use up your usage limits faster.
 - **Effort** is how long the model gets to think before and while it acts. Higher effort helps on hard tasks, and also burns limits faster — note the warning under `Ultra`.
@@ -92,10 +98,14 @@ For today, the defaults are fine. If you hit the free tier's usage limits partwa
 We're starting from scratch — a fresh project that will hold everything we build today.
 
 1. In the app, switch the toggle to `Codex`.
-2. Create a new project called `flight-delays`: click the `+` next to `Projects` in the sidebar, type the name, and click `Create project`. Codex creates the folder for you. [TODO: confirm at dry-run where the folder lands by default]
+2. Create a new project called `flight-delays`: click the `+` next to `Projects` in the sidebar, type the name, and click `Create project`. Codex creates the folder for you.
 
+<center>
 <img src="../images/codex_new_project-1.png" alt="Step 1: the + button next to Projects in the sidebar" width="380">
 <img src="../images/codex_new_project-2.png" alt="Step 2: the Create project dialog with flight-delays typed in" width="500">
+</center>
+
+
 3. Make sure the agent is set to work **locally** — on your computer, not in the cloud. We need it working with the files on your machine.
 
 That's it. The agent's world is now that folder. Your new project should appear under `Projects` in the sidebar.
@@ -113,7 +123,7 @@ Downloading the data is a task - that's a conversation. Exploring the data is a 
 There are two things to keep in mind:
 
 - **Files persist across conversations.** Anything the agent created in an earlier conversation is still in the folder, and a new conversation can see it.
-- **The chat history doesn't.** A new conversation starts fresh. The agent doesn't remember what you discussed in the last one. However, the agent *can* access the project's files, instructions, shared sources, and–if enabled—memories from earlier chats. In other words: if information lives in your head, the agent doesn't have access to it unless you tell it. But if it exists in a file, the agent can search for it and use it.
+- **The chat history doesn't.** A new conversation starts fresh. The agent doesn't remember what you discussed in the last one. However, the agent *can* access the project's files, instructions, shared sources, and memories from earlier chats (if enabled). In other words, if information lives in your head, the agent doesn't have access to it unless you tell it. But if it exists in a file, the agent can search for it and use it.
 
 🔔 **Question:** If each conversation starts with no memory of the previous ones, how does the agent know the rules of your project? 
 
