@@ -77,9 +77,12 @@ Point at the mock: same FileNotFoundError as the chatbot slide, but this time no
 
 ---
 
-## The loop
+## Research workflows with agentic AI
 
-plan → act → check the result → repeat
+1. Plan your analysis
+2. Have the agent conduct the analysis
+3. Verify the result
+4. Go to step 1
 
 You approve the risky steps.
 
@@ -108,11 +111,13 @@ A real agent status report after a long stretch of autonomous work (shared by Et
 
 ---
 
-## The self-check
+## Staying in the loop
 
 Do you still understand the output? The process?
 
 If not: slow down. Ask the agent what's happening.
+
+Staying in the loop is an active and ongoing process.
 
 Note:
 This is the habit to leave with. The moment you're nodding along to words like the previous slide's, stop. Ask: "explain what you just did, plainly, as if I'm new to this project." The agent will happily re-explain at any level — but only if you ask. Speed is the default; comprehension is a choice you have to keep making.
@@ -127,18 +132,23 @@ This is the habit to leave with. The moment you're nodding along to words like t
 | **Claude Code** | paid plans, small free tier · app, terminal, VS Code |
 | **Antigravity** | free with a Google account, for now · full editor |
 
-The habits transfer.
+The research workflows work for all agents.
 
 Note:
 We use Codex today because the free tier covers the workshop. Claude Code is Anthropic's, same loop on Claude models. Antigravity is Google's, inside a full editor; any Google account works if the campus one balks. Cursor and GitHub Copilot are the same family. Pricing shifts every few months — true as of August 2026. Everything today (projects, permissions, specs) transfers.
 
 ---
 
-## Today
+## Structure of today's workshop
 
-Real flight data, a delay model, a dashboard, and a workflow that survives without you.
+Today, we will use agentic AI to:
 
-Open lesson 1 in your browser.
+1. Download, preprocess, and analyze a large dataset of flights,
+2. Build a model to predict whether a flight is delayed,
+3. Build a dashboard to understand our results, and
+4. Build a workflow to reproduce our analysis.
+
+Let's begin by opening lesson 1 (`lesson/1_Introduction_and_Setup.md`) in your browser.
 
 Note:
 Drop the materials link in the Zoom chat and check everyone has it open before leaving this slide. Five lessons, one project; the slides end here and the rest of the session lives in Codex and the lesson pages. Closing reminder for the end of the day lives in lesson 5: the demo prompt returns as a take-home.
